@@ -29,13 +29,17 @@ Every successful method request returns decoded json array.
 ## Pagination [#ref](https://docs.gdax.com/#pagination)
 
 Your requests should use these cursor values when making requests for pages after the initial request.
+
 | Parameter  | Description |
 | ------------- | ------------- |
 | $before  | Request page before (newer) this pagination id. (default null)  |
-| $after  | Request page after (older) this pagination id. (default null)  |
-| $limit  | Number of results per request. Maximum 100. (default 100)  |
+| $after  | Request page after (older) this pagination id. (default null) |
+| $limit  | Number of results per request. Maximum 100. (default 100) |
+
 ```php
-$pagination = \Hellovoid\Gdax\Pagination::create($before, null, $limit);
+use \Hellovoid\Gdax\Pagination;
+
+$pagination = Pagination::create($before, null, $limit);
 
 $client->setPagination($pagination);
 
